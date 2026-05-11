@@ -75,32 +75,45 @@ export default function Home() {
             <div className="w-full bg-slate-50 rounded-[40px] p-8 md:p-12 border border-slate-100 relative overflow-hidden h-[480px] md:h-[500px] flex items-center justify-center shadow-inner">
                <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
                <div className="relative w-full max-w-sm flex flex-col items-center">
-                  {/* Animation components remain same as your logic */}
+                  
+                  {/* Step 1: AI Capture */}
                   <div className="w-full flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-slate-100 z-10 -translate-x-4 md:-translate-x-12">
                      <MessageSquare className="text-[#2563EB] w-5 h-5 md:w-6 md:h-6 shrink-0" />
                      <div className="flex-1">
                         <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                           <div className="h-full bg-[#2563EB] w-[60%] animate-pulse" />
+                            <div className="h-full bg-[#2563EB] animate-progress-step" />
                         </div>
                         <span className="text-[9px] md:text-[10px] font-black text-slate-400 mt-2 block uppercase tracking-widest">AI Capture</span>
                      </div>
                   </div>
-                  <div className="w-[2px] h-10 md:h-12 bg-slate-200 my-1 -translate-x-4 md:-translate-x-12" />
+
+                  {/* Flow 1 */}
+                  <div className="w-[2px] h-10 md:h-12 bg-slate-200 my-1 -translate-x-4 md:-translate-x-12 relative">
+                    <div className="absolute top-0 w-full bg-brandBlue animate-path-step [animation-delay:1.2s] opacity-0" />
+                  </div>
+
+                  {/* Step 2: Payment Sync */}
                   <div className="w-full flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-md border border-slate-100 z-10">
                      <CreditCard className="text-emerald-500 w-5 h-5 md:w-6 md:h-6 shrink-0" />
                      <div className="flex-1">
                         <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                           <div className="h-full bg-emerald-500 w-[40%]" />
+                           <div className="h-full bg-emerald-500 animate-progress-step [animation-delay:2.4s] w-0" />
                         </div>
                         <span className="text-[9px] md:text-[10px] font-black text-slate-400 mt-2 block uppercase tracking-widest">Payment Sync</span>
                      </div>
                   </div>
-                  <div className="w-[2px] h-10 md:h-12 bg-slate-200 my-1 translate-x-4 md:translate-x-12" />
+
+                  {/* Flow 2 */}
+                  <div className="w-[2px] h-10 md:h-12 bg-slate-200 my-1 translate-x-4 md:translate-x-12 relative">
+                    <div className="absolute top-0 w-full bg-emerald-500 animate-path-step [animation-delay:3.6s] opacity-0" />
+                  </div>
+
+                  {/* Step 3: Carrier Gateway */}
                   <div className="w-full flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-slate-100 z-10 translate-x-4 md:translate-x-12">
                      <Package className="text-orange-500 w-5 h-5 md:w-6 md:h-6 shrink-0" />
                      <div className="flex-1">
                         <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                           <div className="h-full bg-orange-500 w-[80%]" />
+                           <div className="h-full bg-orange-500 animate-progress-step [animation-delay:4.8s] w-0" />
                         </div>
                         <span className="text-[9px] md:text-[10px] font-black text-slate-400 mt-2 block uppercase tracking-widest">Carrier Gateway</span>
                      </div>
@@ -111,7 +124,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Core Features */}
+      {/* Core Features Section - Remains unchanged */}
       <section id="solutions" className="py-20 md:py-24 container mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] tracking-tight">Our Core Features</h2>
@@ -135,7 +148,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Technical Infrastructure - Scroll target */}
+      {/* Infrastructure Section - Remains unchanged */}
       <section id="infrastructure" className="py-20 md:py-24 bg-[#0F172A] text-white overflow-hidden scroll-mt-20">
         <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6 md:space-y-8">
@@ -188,7 +201,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer Section */}
       <footer className="py-12 md:py-16 bg-white border-t border-slate-100">
         <div className="container mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-2">
@@ -203,9 +216,9 @@ export default function Home() {
           </div>
           <p className="text-slate-400 text-xs md:text-sm text-center md:text-left leading-relaxed">© 2026 SellMate AI. The Operating System for Social Commerce.</p>
           <div className="flex gap-6 md:gap-8 text-xs md:text-sm font-semibold text-slate-500">
-             <button onClick={() => scrollToSection('infrastructure')} className="hover:text-[#2563EB] transition-colors">Docs</button>
-             <a href="#" className="hover:text-[#2563EB] transition-colors">Terms</a>
-             <a href="#" className="hover:text-[#2563EB] transition-colors">Privacy</a>
+              <button onClick={() => scrollToSection('infrastructure')} className="hover:text-[#2563EB] transition-colors">Docs</button>
+              <a href="#" className="hover:text-[#2563EB] transition-colors">Terms</a>
+              <a href="#" className="hover:text-[#2563EB] transition-colors">Privacy</a>
           </div>
         </div>
       </footer>
