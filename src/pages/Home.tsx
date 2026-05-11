@@ -1,10 +1,10 @@
 import { Check, Zap, ArrowRight, MessageSquare, LayoutDashboard, CreditCard, Package } from "lucide-react";
-import { useNavigate } from "react-router-dom"; // Navigation အတွက် ထည့်သွင်းပါ
+import { useLocation } from "wouter";
 
 export default function Home() {
-  const navigate = useNavigate(); // Navigation function ကို အသက်သွင်းပါ
+  const [, setLocation] = useLocation();
 
-  // Scroll ဆင်းဖို့ function
+  // Scroll function - Docs နှိပ်ရင် အောက်ကိုဆင်းဖို့
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -28,8 +28,8 @@ export default function Home() {
             <span className="text-lg md:text-xl font-bold tracking-tight text-[#0F172A]">SellMate AI</span>
           </div>
           <button 
-            onClick={() => navigate('/beta')} // Beta page သို့ သွားရန်
-            className="bg-[#2563EB] text-white px-4 py-2 md:px-6 md:py-2.5 rounded-lg font-bold text-xs md:text-sm hover:bg-blue-700 transition shadow-sm active:scale-95"
+            onClick={() => setLocation("/beta")}
+            className="bg-[#2563EB] text-white px-4 py-2 md:px-6 md:py-2.5 rounded-lg font-bold text-xs md:text-sm hover:bg-blue-700 transition shadow-sm"
           >
             Request Beta
           </button>
@@ -52,13 +52,13 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
               <button 
-                onClick={() => navigate('/beta')} // Beta page သို့ သွားရန်
-                className="bg-[#2563EB] text-white px-8 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-base md:text-lg shadow-lg shadow-blue-100 hover:shadow-xl transition-all active:scale-95"
+                onClick={() => setLocation("/beta")}
+                className="bg-[#2563EB] text-white px-8 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-base md:text-lg shadow-lg shadow-blue-100 hover:shadow-xl transition-all"
               >
                 Start Free Beta
               </button>
               <button 
-                onClick={() => scrollToSection('infrastructure')} // Infrastructure ဆီသို့ Scroll ဆင်းရန်
+                onClick={() => scrollToSection('infrastructure')}
                 className="flex items-center justify-center gap-2 text-slate-600 font-bold px-8 py-4 hover:text-[#2563EB] transition text-sm md:text-base group"
               >
                 View API Docs <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -75,11 +75,12 @@ export default function Home() {
             <div className="w-full bg-slate-50 rounded-[40px] p-8 md:p-12 border border-slate-100 relative overflow-hidden h-[480px] md:h-[500px] flex items-center justify-center shadow-inner">
                <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
                <div className="relative w-full max-w-sm flex flex-col items-center">
+                  {/* Animation components remain same as your logic */}
                   <div className="w-full flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-slate-100 z-10 -translate-x-4 md:-translate-x-12">
                      <MessageSquare className="text-[#2563EB] w-5 h-5 md:w-6 md:h-6 shrink-0" />
                      <div className="flex-1">
                         <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                           <div className="h-full bg-[#2563EB] animate-pulse w-[70%]" />
+                           <div className="h-full bg-[#2563EB] w-[60%] animate-pulse" />
                         </div>
                         <span className="text-[9px] md:text-[10px] font-black text-slate-400 mt-2 block uppercase tracking-widest">AI Capture</span>
                      </div>
@@ -89,7 +90,7 @@ export default function Home() {
                      <CreditCard className="text-emerald-500 w-5 h-5 md:w-6 md:h-6 shrink-0" />
                      <div className="flex-1">
                         <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                           <div className="h-full bg-emerald-500 w-[45%]" />
+                           <div className="h-full bg-emerald-500 w-[40%]" />
                         </div>
                         <span className="text-[9px] md:text-[10px] font-black text-slate-400 mt-2 block uppercase tracking-widest">Payment Sync</span>
                      </div>
@@ -99,7 +100,7 @@ export default function Home() {
                      <Package className="text-orange-500 w-5 h-5 md:w-6 md:h-6 shrink-0" />
                      <div className="flex-1">
                         <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                           <div className="h-full bg-orange-500 w-[30%]" />
+                           <div className="h-full bg-orange-500 w-[80%]" />
                         </div>
                         <span className="text-[9px] md:text-[10px] font-black text-slate-400 mt-2 block uppercase tracking-widest">Carrier Gateway</span>
                      </div>
@@ -110,7 +111,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4 Pillars Section */}
+      {/* Core Features */}
       <section id="solutions" className="py-20 md:py-24 container mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] tracking-tight">Our Core Features</h2>
@@ -134,7 +135,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Technical Infrastructure - API Docs နှိပ်ရင် ဒီရောက်လာမယ် */}
+      {/* Technical Infrastructure - Scroll target */}
       <section id="infrastructure" className="py-20 md:py-24 bg-[#0F172A] text-white overflow-hidden scroll-mt-20">
         <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6 md:space-y-8">
@@ -151,7 +152,7 @@ export default function Home() {
           </div>
           
           <div className="relative mt-8 lg:mt-0">
-            <div className="absolute -inset-4 bg-blue-500/30 blur-3xl rounded-full opacity-20" />
+            <div className="absolute -inset-4 bg-blue-500/20 blur-3xl rounded-full opacity-20" />
             <div className="relative p-1 bg-gradient-to-br from-slate-700 to-slate-800 rounded-[2rem] border border-slate-700 shadow-2xl">
               <div className="bg-[#0B1120] rounded-[1.8rem] p-6 md:p-10 font-mono text-[11px] sm:text-[12px] md:text-sm leading-relaxed overflow-hidden">
                 <div className="flex gap-1.5 mb-8 opacity-50">
@@ -198,7 +199,7 @@ export default function Home() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="font-bold text-slate-900 tracking-tight">SellMate AI v1.0</span>
+            <span className="font-bold text-[#0F172A] tracking-tight">SellMate AI v1.0</span>
           </div>
           <p className="text-slate-400 text-xs md:text-sm text-center md:text-left leading-relaxed">© 2026 SellMate AI. The Operating System for Social Commerce.</p>
           <div className="flex gap-6 md:gap-8 text-xs md:text-sm font-semibold text-slate-500">
