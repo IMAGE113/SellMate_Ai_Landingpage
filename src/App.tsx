@@ -1,11 +1,14 @@
 import { Route, Switch } from "wouter";
 import Home from "./pages/Home";
+import BetaPage from "./pages/Beta"; // ဒါလေး ထည့်ပါ
 
 function App() {
   return (
     <Switch>
-      {/* Route ပတ်လိုက်ပြီဖြစ်တဲ့အတွက် / ကိုသွားရင် ခင်ဗျားရဲ့ Home ပေါ်လာပါလိမ့်မယ် */}
       <Route path="/" component={Home} />
+      {/* Beta Page အတွက် Route အသစ် */}
+      <Route path="/beta" component={BetaPage} />
+      
       <Route>404 Page Not Found</Route>
     </Switch>
   );
