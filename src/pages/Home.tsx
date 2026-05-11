@@ -18,11 +18,9 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Fixed Mobile Spacing & Title */}
+      {/* Hero Section */}
       <section className="pt-28 pb-16 px-6 md:pt-40 md:pb-32 md:px-8">
         <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          
-          {/* Text Content */}
           <div className="space-y-8 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-50 text-brandBlue text-[10px] md:text-[11px] font-bold tracking-wider uppercase mx-auto lg:mx-0">
               <Zap className="w-3 h-3" /> AI Infrastructure for Social Commerce
@@ -44,7 +42,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Workflow Diagram with Title */}
+          {/* Workflow Diagram */}
           <div className="flex flex-col items-center">
             <div className="mb-8 text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-brandDark">Our Workflow</h2>
@@ -52,9 +50,7 @@ export default function Home() {
             </div>
             <div className="w-full bg-slate-50 rounded-[40px] p-8 md:p-12 border border-slate-100 relative overflow-hidden h-[480px] md:h-[500px] flex items-center justify-center">
                <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
-               
                <div className="relative w-full max-w-sm flex flex-col items-center">
-                  {/* 1. AI Capture */}
                   <div className="w-full flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-slate-100 z-10 -translate-x-4 md:-translate-x-12">
                      <MessageSquare className="text-brandBlue w-5 h-5 md:w-6 md:h-6 shrink-0" />
                      <div className="flex-1">
@@ -64,13 +60,9 @@ export default function Home() {
                         <span className="text-[9px] md:text-[10px] font-black text-slate-400 mt-2 block uppercase tracking-widest">AI Capture</span>
                      </div>
                   </div>
-
-                  {/* Path 1 */}
                   <div className="w-[2px] h-10 md:h-12 bg-slate-200 my-1 relative -translate-x-4 md:-translate-x-12">
                      <div className="absolute top-0 w-full bg-brandBlue animate-[pathFlow_6s_infinite_1.2s] opacity-0" />
                   </div>
-
-                  {/* 2. Payment Sync */}
                   <div className="w-full flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-md border border-slate-100 z-10">
                      <CreditCard className="text-emerald-500 w-5 h-5 md:w-6 md:h-6 shrink-0" />
                      <div className="flex-1">
@@ -80,13 +72,9 @@ export default function Home() {
                         <span className="text-[9px] md:text-[10px] font-black text-slate-400 mt-2 block uppercase tracking-widest">Payment Sync</span>
                      </div>
                   </div>
-
-                  {/* Path 2 */}
                   <div className="w-[2px] h-10 md:h-12 bg-slate-200 my-1 relative translate-x-4 md:translate-x-12">
                      <div className="absolute top-0 w-full bg-emerald-500 animate-[pathFlow_6s_infinite_3.6s] opacity-0" />
                   </div>
-
-                  {/* 3. Carrier Gateway */}
                   <div className="w-full flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-slate-100 z-10 translate-x-4 md:translate-x-12">
                      <Package className="text-orange-500 w-5 h-5 md:w-6 md:h-6 shrink-0" />
                      <div className="flex-1">
@@ -102,7 +90,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4 Pillars Section with Title */}
+      {/* 4 Pillars Section */}
       <section id="solutions" className="py-20 md:py-24 container mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-brandDark">Our Core Features</h2>
@@ -126,7 +114,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Technical Infrastructure - Spacing Fix */}
+      {/* Technical Infrastructure - Spacing & Code Box Fix */}
       <section id="infrastructure" className="py-20 md:py-24 bg-brandDark text-white overflow-hidden">
         <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6 md:space-y-8">
@@ -141,16 +129,38 @@ export default function Home() {
               <div className="flex items-center gap-2 text-slate-300"><Check className="text-brandBlue w-5 h-5" /> Real-time Analytics</div>
             </div>
           </div>
-          <div className="relative p-1 bg-slate-800 rounded-3xl border border-slate-700 mb-10 lg:mb-0">
-             <div className="bg-slate-900 rounded-[20px] p-6 md:p-10 font-mono text-[11px] md:text-sm text-blue-400 overflow-x-auto">
-                <p className="opacity-50">// SellMate Operating System</p>
-                <div className="mt-6 space-y-1">
-                  <p className="text-white whitespace-nowrap">const order = await SellMate.capture(chat_context);</p>
-                  <p className="whitespace-nowrap">await order.verifyPayment();</p>
-                  <p className="text-blue-300 whitespace-nowrap">await order.syncToLogistics("PREFERRED_CARRIER");</p>
+          
+          {/* NEW OPTIMIZED CODE BOX */}
+          <div className="relative mt-8 lg:mt-0">
+            <div className="absolute -inset-4 bg-brandBlue/20 blur-3xl rounded-full opacity-20" />
+            <div className="relative p-1 bg-gradient-to-br from-slate-700 to-slate-800 rounded-[2rem] border border-slate-700 shadow-2xl">
+              <div className="bg-[#0B1120] rounded-[1.8rem] p-6 md:p-10 font-mono text-[11px] sm:text-[12px] md:text-sm leading-relaxed overflow-hidden">
+                <div className="flex gap-1.5 mb-8 opacity-50">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                 </div>
-                <p className="mt-6 opacity-50">// System Status: Optimal</p>
-             </div>
+                <div className="space-y-4">
+                  <p className="text-slate-500 italic">// SellMate OS v1.0</p>
+                  <div className="space-y-1.5">
+                    <p className="text-blue-400">
+                      <span className="text-purple-400">const</span> order = <span className="text-purple-400">await</span> 
+                      <span className="text-white whitespace-nowrap"> SellMate.capture</span>(chat);
+                    </p>
+                    <p className="text-blue-400 whitespace-nowrap">
+                      <span className="text-purple-400">await</span> order.<span className="text-white">verifyPayment</span>();
+                    </p>
+                    <p className="text-blue-400 whitespace-nowrap">
+                      <span className="text-purple-400">await</span> order.<span className="text-white">syncToLogistics</span>();
+                    </p>
+                  </div>
+                  <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+                    <p className="text-slate-500 text-[10px] tracking-widest uppercase">System Status</p>
+                    <span className="text-emerald-500 text-[10px] font-bold">OPTIMAL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
