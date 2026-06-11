@@ -1,0 +1,27 @@
+import axios from 'axios';
+
+const API_BASE_URL = 'https://sellmate-ai-backend.onrender.com/api';
+
+export interface RegisterRequest {
+  shop_name: string;
+  owner_name: string;
+  phone: string;
+  password: string;
+  requirements: string;
+}
+
+export interface RegisterResponse {
+  success: boolean;
+  message: string;
+  shop_id: string;
+  business_id: number;
+  shop_name: string;
+  owner_name: string;
+  phone: string;
+  requirements: string;
+}
+
+export const registerMerchant = async (data: RegisterRequest): Promise<RegisterResponse> => {
+  const response = await axios.post(`${API_BASE_URL}/auth/register`, data);
+  return response.data;
+};
