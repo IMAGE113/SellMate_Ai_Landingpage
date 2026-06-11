@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://sellmate-ai-backend.onrender.com/api';
+const API_BASE_URL = 'https://sellmate-ai-backend.onrender.com/api/auth/register';
 
 export interface RegisterRequest {
   shop_name: string;
